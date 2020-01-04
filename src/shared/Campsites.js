@@ -9,8 +9,8 @@ export const CAMPSITES = [
             {
                 id: 0,
                 rating: 5, 
-                text: "What a magnificent view!",
-                author: "Tinus Lorvaldes",
+                text: "What a lovely view!",
+                author: "Charles Charleson",
                 date: "2018-10-25T16:30Z"
             },
             {
@@ -53,7 +53,7 @@ export const CAMPSITES = [
             {
                 id: 0,
                 rating: 5, 
-                text: "What a magnificent view!",
+                text: "What a wonderful view!",
                 author: "Tinus Lorvaldes",
                 date: "2018-10-25T16:30Z"
             },
@@ -97,8 +97,8 @@ export const CAMPSITES = [
             {
                 id: 0,
                 rating: 5, 
-                text: "What a magnificent view!",
-                author: "Tinus Lorvaldes",
+                text: "What a charming view!",
+                author: "David Davidson",
                 date: "2018-10-25T16:30Z"
             },
             {
@@ -141,8 +141,8 @@ export const CAMPSITES = [
             {
                 id: 0,
                 rating: 5, 
-                text: "What a magnificent view!",
-                author: "Tinus Lorvaldes",
+                text: "What an astounding view!",
+                author: "Mike Michaelson",
                 date: "2018-10-25T16:30Z"
             },
             {
