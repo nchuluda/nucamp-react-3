@@ -1,4 +1,4 @@
-import { CAMPSITES } from '../shared/campsites';
+import { CAMPSITES } from '../shared/Campsites';
 import { COMMENTS } from '../shared/comments';
 import { PARTNERS } from '../shared/partners';
 import { PROMOTIONS } from '../shared/promotions';
