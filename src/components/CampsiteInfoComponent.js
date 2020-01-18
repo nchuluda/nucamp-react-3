@@ -37,7 +37,7 @@ function RenderComments({comments}) {
                         })}
                         </div>
                         <div className="row">
-                            <CommentButton />
+                            <CommentForm />
                         </div>
                     </div>
             );
@@ -67,7 +67,7 @@ function CampsiteInfo(props) {
                         
                     </div>
                     <div className="row">
-                        <CommentForm />
+                        
                     </div>
                 </div>
             );
@@ -85,13 +85,21 @@ class CommentForm extends Component {
             rating: '',
             name: '',
             comment: '',
+            isModalOpen: false,
             touched: {
                 rating: false,
                 name: false,
                 comment: false,
             }
         };
+        this.toggleModal = this.toggleModal.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
+    }
+
+    toggleModal() {
+        this.setState({
+            isModalOpen: !this.state.isModalOpen
+        });
     }
 
     handleSubmit(values) {
@@ -102,67 +110,51 @@ class CommentForm extends Component {
     render() {
         return (
             <div className="container">
-                
-                    <LocalForm onSubmit={values => this.handleSubmit(values)}>
-                        <Row className="form-group">
-                            <Col>
-                                <Label htmlFor=".rating">Rating</Label>
-                                <Control.select model=".rating" className="form-control" name="rating">
-                                    <option>1</option>
-                                    <option>2</option>
-                                    <option>3</option>
-                                    <option>4</option>
-                                    <option>5</option>
-                                </Control.select>
-                            </Col>
-                        </Row>
-                        <Row className="form-group">
-                            <Col>
-                                <Label htmlFor=".name">Your Name</Label>
-                                <Control.text model=".name" className="form-control" id="name" name="name" placeholder="Your Name" />
-                            </Col>
-                        </Row>
-                        <Row className="form-group">
-                            <Col>
-                                <Label htmlFor="comment">Comment</Label>
-                                <Control.textarea model=".feedback" className="form-control" id="feedback" name="feedback" rows="6" />
-                            </Col>
-                        </Row>
-                        <Row className="form-group">
-                            <Col>
-                                <Button type="submit" color="primary">Submit</Button>
-                            </Col>
-                        </Row>
-                    </LocalForm>
+                <Button outline onClick={this.toggleModal}><i class="fa fa-pencil"></i> Submit Comment</Button>
+                <Modal isOpen={this.state.isModalOpen} toggle={this.toggleModal}>
+                 <ModalHeader toggle={this.toggleModal}>Submit Comment</ModalHeader>
+                    <ModalBody>
+                        <LocalForm onSubmit={values => this.handleSubmit(values)}>
+                            <Row className="form-group">
+                                <Col>
+                                    <Label htmlFor=".rating">Rating</Label>
+                                    <Control.select model=".rating" className="form-control" name="rating">
+                                        <option>1</option>
+                                        <option>2</option>
+                                        <option>3</option>
+                                        <option>4</option>
+                                        <option>5</option>
+                                    </Control.select>
+                                </Col>
+                            </Row>
+                            <Row className="form-group">
+                                <Col>
+                                    <Label htmlFor=".name">Your Name</Label>
+                                    <Control.text model=".name" className="form-control" id="name" name="name" placeholder="Your Name" />
+                                </Col>
+                            </Row>
+                            <Row className="form-group">
+                                <Col>
+                                    <Label htmlFor="comment">Comment</Label>
+                                    <Control.textarea model=".feedback" className="form-control" id="feedback" name="feedback" rows="6" />
+                                </Col>
+                            </Row>
+                            <Row className="form-group">
+                                <Col>
+                                    <Button type="submit" color="primary" onClick={this.toggleModal}>Submit</Button>
+                                </Col>
+                            </Row>
+                        </LocalForm>
+                    </ModalBody>
+                </Modal>
             </div>
         );
     }
 }
 
-class CommentButton extends Component {
-    render() {
-        return (
-            <Button outline><i class="fa fa-pencil"></i> Submit Comment</Button>
-        );
-    }
-}
-
-class CommentModal extends Component {
 
 
-    render() {
-        return (
-            <div>
-            <Modal>
-                <ModalHeader>Submit Comment</ModalHeader>
-                <ModalBody>
-                    <CommentForm />
-                </ModalBody>
-            </Modal>
-            </div>
-        );
-    }
-}
+
 
 
 export default CampsiteInfo;
