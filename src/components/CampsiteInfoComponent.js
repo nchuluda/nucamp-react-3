@@ -83,15 +83,7 @@ class CommentForm extends Component {
         super(props);
 
         this.state = {
-            rating: '',
-            name: '',
-            comment: '',
             isModalOpen: false,
-            touched: {
-                rating: false,
-                name: false,
-                comment: false,
-            }
         };
         this.toggleModal = this.toggleModal.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
@@ -120,7 +112,7 @@ class CommentForm extends Component {
                                 <Col>
                                     <Label htmlFor=".rating">Rating</Label>
                                     <Control.select model=".rating" className="form-control" name="rating">
-                                        <option>1</option>
+                                        <option>1 <i class="fa fa-star"></i></option>
                                         <option>2</option>
                                         <option>3</option>
                                         <option>4</option>
