@@ -81,20 +81,20 @@ function RenderPartner({partner}) {
 }
 
 function PartnerList(props) {
-    const partners = props.partners.map(partner => {
+    const partners = props.partners.partners.map(partner => {
         return (
-            <Media tag="li" key={partner.id}><RenderPartner partner={partner} /></Media>
+            <Media tag="li" key={partner.id}>
+                <RenderPartner partner={partner} />
+            </Media>
         );
     });
-    if (props.isLoading) {
-        return (
-            <Loading />
-        );
+    if (props.partners.isLoading) {
+        return <Loading />;
     }
-    if (props.errMess) {
+    if (props.partners.errMess) {
         return (
-            <div className="col mt-4">
-                <h4>{props.errMess}</h4>
+            <div className="col">
+                <h4>{props.partners.errMess}</h4>
             </div>
         );
     }
@@ -104,7 +104,7 @@ function PartnerList(props) {
                 {partners}
             </Media>
         </div>
-    );  
-    
+    );
 }
+
 export default About;

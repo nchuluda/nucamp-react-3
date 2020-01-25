@@ -18,6 +18,7 @@ const mapStateToProps = state => {
         comments: state.comments,
         partners: state.partners,
         promotions: state.promotions
+
     }
 }
 
@@ -50,7 +51,7 @@ class Main extends Component {
                     promotion={this.props.promotions.promotions.filter(promotion => promotion.featured)[0]}
                     promotionLoading={this.props.promotions.isLoading} 
                     promotionErrMess={this.props.promotions.errMess}
-                    partner={this.props.partners.filter(partner => partner.featured)[0]}
+                    partner={this.props.partners.partners.filter(partner => partner.featured)[0]}
                     partnersLoading={this.props.partners.isLoading} 
                     partnersErrMess={this.props.partners.errMess}
                 />
