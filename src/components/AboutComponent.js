@@ -82,12 +82,14 @@ function RenderPartner({partner}) {
 }
 
 function PartnerList(props) {
-    const partners = props.partners.partners.map(partner => {
+    
+    const partners2 = props.partners.partners.map(partner => {
         return (
             <Media tag="li" key={partner.id}>
                 <RenderPartner partner={partner} />
             </Media>
         );
+        console.log({partners2})
     });
     if (props.partners.isLoading) {
         return <Loading />;
@@ -102,7 +104,7 @@ function PartnerList(props) {
     return (
         <div className="col mt-4">
             <Media list>
-                {partners}
+                {partners2}
             </Media>
         </div>
     );
