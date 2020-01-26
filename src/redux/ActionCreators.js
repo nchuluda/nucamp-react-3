@@ -109,7 +109,7 @@ export const postComment = (campsiteId, rating, author, text) => dispatch => {
         });
 };
 
-export const fetchPromotions = () => (dispatch) => {
+export const fetchPromotions = () => dispatch => {
     
     dispatch(promotionsLoading());
 
@@ -148,7 +148,7 @@ export const addPromotions = promotions => ({
 });
 
 
-export const fetchPartners = () => (dispatch) => {
+export const fetchPartners = () => dispatch => {
     
     dispatch(partnersLoading());
 
@@ -168,7 +168,7 @@ export const fetchPartners = () => (dispatch) => {
             }
         )
         .then(response => response.json())
-        .then(partners => dispatch(addPartner(partners)))
+        .then(partners => dispatch(addPartners(partners)))
         .catch(error => dispatch(partnersFailed(error.message)));
 };
 
@@ -181,7 +181,7 @@ export const partnersFailed = errMess => ({
     payload: errMess
 });
 
-export const addPartner = partners => ({
+export const addPartners = partners => ({
     type: ActionTypes.ADD_PARTNERS,
     payload: partners
 });
